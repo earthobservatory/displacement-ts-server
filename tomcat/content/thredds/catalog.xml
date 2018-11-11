@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog name="ARIA Displacement Time Series Server!"
+         xmlns="http://www.unidata.ucar.edu/namespaces/thredds/InvCatalog/v1.0"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.unidata.ucar.edu/namespaces/thredds/InvCatalog/v1.0
+           http://www.unidata.ucar.edu/schemas/thredds/InvCatalog.1.0.6.xsd">
+
+  <service name="all" base="" serviceType="compound">
+    <service name="wms" serviceType="WMS" base="/thredds/wms/" />
+  </service>
+
+  <!--datasetRoot path="test" location="content/testdata/" /-->
+
+  <!--datasetRoot path="ts" location="/data/ts" /-->  
+  <!--dataset name="Time Series 1" ID="ts1"
+           serviceName="wms"  urlPath="ts/NSBAS-PARAMS.h5" dataType="Grid"/-->
+  <datasetScan name="Displacement Time Series" ID="ts1"
+               serviceName="wms" path="ts" location="/data/ts">
+    <filter>
+      <include wildcard="*.h5"/>
+    </filter>
+  </datasetScan>
+<!--catalogRef xlink:title="Test Enhanced Catalog" xlink:href="enhancedCatalog.xml" name=""/-->
+</catalog>

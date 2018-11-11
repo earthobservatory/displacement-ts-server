@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Interferogram Generation</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='js/vendors/leaflet-0.7.7/leaflet.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='js/vendors/leaflet-plugins/Leaflet.Coordinates-0.1.3.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='js/vendors/leaflet-plugins/Control.FullScreen.css') }}" />
+        <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/themes/smoothness/jquery-ui.css" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='js/leaflet.timedimension.control.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />      
+    </head>
+    <body>
+        <div class="container">
+            <div id="header">
+                <h1>Interferogram Timeseries Visualization</h1>                
+                <span id="title">Timeseries of </span>
+            </div>
+            <div id="map" class="map"></div>
+            <div id="chart" class="chart-wrapper"></div>
+            <div id="buttons">
+                <span id="product-buttons"></span>
+                <button id="godiva">View Godiva Interface</button>
+                <!--<button id="download">Generate Google Earth KMZ</button>-->
+            </div>
+            <p>This tool enables the user to explore time-series products archived by the ARIA project by visualizing them using Leaflet Maps. It also enables the user to track explicit locations on the map by dropping markers, and graphing the data under that marker. Simply double-click on the location(s) desired.</p>
+            <h2>Instructions:</h2>
+            <h3>Changing layers</h3>
+            <ol>
+                <li>Click on <img src="static/js/vendors/leaflet-0.7.7/images/layers-2x.png"></img></li>
+                <li>Select desired layers from dropdown</li>
+            </ol>         
+            <h3>Adding Markers</h3>
+            <ol>
+                <li>Navigate using map to find desire location</li>
+                <li>Double-click to add marker</li>
+                <li>Set desired interval on chart</li>
+            </ol>
+            <h3>Clear Markers</h3>
+            <ol>
+                <li>Click on <img src="static/js/vendors/leaflet-0.7.7/images/layers-2x.png"></img></li>
+                <li>Deselect and re-select layer to clear markers</li>
+            </ol>
+        </div>
+
+        <script type="text/javascript" src="{{ url_for('static', filename='js/vendors/jquery-2.0.0.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/vendors/jquery-ui-1.10.2.min.js') }}"></script>
+        
+        <script src="//code.highcharts.com/stock/highstock.js"></script>
+
+
+        <script type="text/javascript" src="{{ url_for('static', filename='js/vendors/leaflet-0.7.7/leaflet.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/vendors/leaflet-plugins/Leaflet.Coordinates-0.1.3.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/vendors/leaflet-plugins/Control.FullScreen.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/vendors/leaflet-plugins/NonTiledLayer.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/vendors/leaflet-plugins/NonTiledLayer.WMS.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/vendors/leaflet-plugins/heatmap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/vendors/leaflet-plugins/leaflet-heatmap.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/vendors/DateFormat.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/vendors/iso8601.js') }}"></script>
+
+        <script type="text/javascript" src="{{ url_for('static', filename='js/leaflet.timedimension.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/leaflet.timedimension.util.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/leaflet.timedimension.layer.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/leaflet.timedimension.layer.wms.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/leaflet.timedimension.layer.geojson.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/leaflet.timedimension.player.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/leaflet.timedimension.control.js') }}"></script>        
+        <script type="text/javascript" src="{{ url_for('static', filename='js/extras/leaflet.timedimension.circlelabelmarker.js') }}"></script>        
+        <script type="text/javascript" src="{{ url_for('static', filename='js/extras/leaflet.timedimension.layer.wms.timeseries.js') }}"></script>        
+
+        <script type="text/javascript" src="{{ url_for('static', filename='js/baselayers.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/ajax.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/controls.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/leaflet.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/product.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/index-2.js') }}"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    </body>
+</html>
