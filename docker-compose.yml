@@ -2,7 +2,7 @@ version: '3'
 services:
   hysds-thredds:
     build: .
-    hostname: hysds-thredds 
+    hostname: hysds-thredds
     container_name: hysds-thredds
     image: docker.io/unidata/thredds-docker:latest
     # hide the ports since being proxied by nginx
@@ -11,7 +11,7 @@ services:
     volumes:
       - ./tomcat/logs/:/usr/local/tomcat/logs/
       - ./tomcat/content/thredds:/usr/local/tomcat/content/thredds
-      - ./datasets/ts:/data/ts
+      - /data/work/ts:/data/ts
   hysds-leaflet-ts:
     build: .
     hostname: hysds-leaflet-ts
