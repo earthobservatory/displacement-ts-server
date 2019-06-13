@@ -10,7 +10,7 @@ RUN set -ex \
   && sudo chown -R ops:ops /home/ops/verdi/ops/leaflet_ts \
   && source ~/verdi/bin/activate \
   && cd ~/verdi/ops/leaflet_ts \
-  && pip install --process-dependency-links -e . \ 
+  && pip install -e . \ 
   && rm -rf /home/ops/.cache
 
 COPY configs/supervisord.conf /home/ops/verdi/etc/supervisord.conf
