@@ -1,4 +1,4 @@
-FROM hysds/pge-base
+FROM hysds/pge-base:python2
 
 MAINTAINER gmanipon "gmanipon@jpl.nasa.gov"
 LABEL description="ARIA Displacement Time Series Leaflet Viewer"

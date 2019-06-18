@@ -21,6 +21,8 @@ services:
     #ports:
     #  - "8888:8888"
     command: [ "supervisord", "-n" ]
+    volumes:
+      - ./verdi/log/:/home/ops/verdi/log/
   hysds-nginx:
     build: .
     hostname: hysds-nginx
