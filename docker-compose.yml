@@ -18,11 +18,9 @@ services:
     container_name: hysds-leaflet-ts
     image: hysds/displacement-ts-server:latest
     # hide the ports since being proxied by nginx
-    #ports:
+    # ports:
     #  - "8888:8888"
     command: [ "supervisord", "-n" ]
-    volumes:
-      - ./verdi/log/:/home/ops/verdi/log/
   hysds-nginx:
     build: .
     hostname: hysds-nginx
@@ -31,6 +29,9 @@ services:
     ports:
       - "80:80"
       - "443:443"
+      - "8443:8443"
+      - "8888:8888"
+      - "9001:9001"
     volumes:
       - ./configs/leaflet_ts_proxy.conf:/etc/nginx/conf.d/leaflet_ts_proxy.conf
       - ./configs/certs:/etc/ssl/certs
