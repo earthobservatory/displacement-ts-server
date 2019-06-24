@@ -37,7 +37,8 @@ def update_ts_server():
         rm_rf('%s/ops/displacement-ts-server' % hysds_dir)
         rsync_project('%s/ops/' % hysds_dir, '~/mozart/ops/displacement-ts-server',
                       ssh_opts="-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no")
-
+        cp_rp('~/verdi/ops/displacement-ts-server/verdi_configs/supervisord.conf', '~/verdi/etc/') 
+        
 
 def test():
     # Test fabric function
