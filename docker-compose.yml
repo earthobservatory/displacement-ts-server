@@ -27,10 +27,10 @@ services:
     container_name: hysds-nginx
     image: nginx:latest
     ports:
-      - "80:80"
+      - "80:8888"
       - "443:443"
-      - "8443:8443"
-      - "8888:8888"
+    #  - "8888:8888"
+    #  - "9001:9001"
     volumes:
       - ./configs/leaflet_ts_proxy.conf:/etc/nginx/conf.d/leaflet_ts_proxy.conf
       - ./configs/certs:/etc/ssl/certs
