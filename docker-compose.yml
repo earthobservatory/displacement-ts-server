@@ -1,7 +1,6 @@
 version: '3'
 services:
   hysds-thredds:
-    build: .
     hostname: hysds-thredds 
     container_name: hysds-thredds
     image: docker.io/unidata/thredds-docker:latest
@@ -22,15 +21,12 @@ services:
     #  - "8888:8888"
     command: [ "supervisord", "-n" ]
   hysds-nginx:
-    build: .
     hostname: hysds-nginx
     container_name: hysds-nginx
     image: nginx:latest
     ports:
       - "80:80"
       - "443:443"
-      - "8443:8443"
-      - "8888:8888"
     volumes:
       - ./configs/leaflet_ts_proxy.conf:/etc/nginx/conf.d/leaflet_ts_proxy.conf
       - ./configs/certs:/etc/ssl/certs
