@@ -14,7 +14,7 @@ import os
 context = {}
 this_dir = os.path.dirname(os.path.abspath(__file__))
 #sds_cfg = get_user_config_path()
-sds_cfg = os.path.expanduser(os.path.join('~', 'Desktop', 'config.test'))
+sds_cfg = os.path.expanduser(os.path.join('~', '.sds', 'config.test'))
 if not os.path.isfile(sds_cfg):
     raise RuntimeError("SDS configuration file doesn't exist. Run 'sds configure'.")
 with open(sds_cfg) as f:
