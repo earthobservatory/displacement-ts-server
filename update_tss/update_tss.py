@@ -36,7 +36,7 @@ def update_ts_server():
     # updates leaflet time series server with displacement-ts-server repo
     role, hysds_dir, hostname = resolve_role()
     if role == 'leaflet_serv':
-        sudo_rm_rf('%s/ops/displacement-ts-server' % hysds_dir)
+        #sudo_rm_rf('%s/ops/displacement-ts-server' % hysds_dir)
     update_verdi(context)
     if role == 'leaflet_serv':
         rsync_project('%s/ops/' % hysds_dir, '~/mozart/ops/displacement-ts-server',
