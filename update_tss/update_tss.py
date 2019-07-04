@@ -37,7 +37,7 @@ def update_ts_server():
     # updates leaflet time series server with displacement-ts-server repo
     role, hysds_dir, hostname = resolve_role()
     if role == 'leaflet_serv':
-        if exists('/home/verdi/ops/displacement-ts-server') is True:    
+        if exists('%s/ops/displacement-ts-server' % hysds_dir) is True:    
             sudo_rm_rf('%s/ops/displacement-ts-server' % hysds_dir)
         update_verdi(context)
     if role == 'leaflet_serv':
