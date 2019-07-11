@@ -14,7 +14,6 @@ import os
 # define private EC2 IP addresses from .sds/config for time series server host
 context = {}
 this_dir = os.path.dirname(os.path.abspath(__file__))
-#sds_cfg = get_user_config_path()
 sds_cfg = os.path.expanduser(os.path.join('~', '.sds', 'tss_config'))
 if not os.path.isfile(sds_cfg):
     raise RuntimeError("SDS configuration file doesn't exist. Run 'sds configure'.")
@@ -32,6 +31,29 @@ def resolve_role():
         hysds_dir = 'verdi'
     return role, hysds_dir, hostname
 
+def send_celeryconf(node_type):
+    # send celeryconfig.py from mozart to leaflet server
+    ctx = get_context(node_type)
+    template_dir = os.path.join(ops_dir, 'mozart/ops/hysds/configs/celery')
+    if node_type == 'mozart':
+        base_dir = "mozart"
+    elif node_type == 'metrics':
+        base_dir = "metrics"
+    elif node_type in ('verdi', 'verdi-asg', 'leaflet_serv'):
+        base_dir = "verdi"
+    elif node_type == 'grq':
+        base_dir = "sciflo"
+    else:
+        raise RuntimeError("Unknown node type: %s" % node_type)
+    tmpl = 'celeryconfig.py.tmpl'
+    user_path = get_user_files_path()
+    if node_type == 'leaflet_serv':
+        tmpl_asg = 'celeryconfig.py.tmpl.asg'
+        if os.path.exists(os.path.join(user_path, tmpl_asg)):
+            tmpl = tmpl_asg
+    dest_file = '~/%s/ops/hysds/celeryconfig.py' % base_dir
+    upload_template(tmpl, dest_file, use_jinja=True, context=ctx,
+                    template_dir=resolve_files_dir(tmpl, template_dir))
 
 def update_ts_server():
     # updates leaflet time series server with displacement-ts-server repo
@@ -40,11 +62,10 @@ def update_ts_server():
         if exists('%s/ops/displacement-ts-server' % hysds_dir) is True:    
             sudo_rm_rf('%s/ops/displacement-ts-server' % hysds_dir)
         update_verdi(context)
-    if role == 'leaflet_serv':
+        send_celeryconf(role)
         rsync_project('%s/ops/' % hysds_dir, '~/mozart/ops/displacement-ts-server',
                       ssh_opts="-o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no")
-        cp_rp('~/verdi/ops/displacement-ts-server/verdi_configs/supervisord.conf', '~/verdi/etc/') 
-        
+        cp_rp('~/verdi/ops/displacement-ts-server/verdi_configs/supervisord.conf', '~/verdi/etc/')
 
 def test():
     # Test fabric function
