@@ -1,5 +1,5 @@
 #!/bin/bash
-
+###### RUN SCRIPT ON MOZART ######
 # Purpose: Setup time-series leaflet server
 
 # Clone or update displacement-ts-server
