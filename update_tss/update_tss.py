@@ -11,7 +11,7 @@ import os
 # Add Leaflet Time Series Server role 
 #####################################
 
-# define private EC2 IP addresses from .sds/config for time series server host
+# define private EC2 IP address from .sds/tss_config for time series server host
 context = {}
 this_dir = os.path.dirname(os.path.abspath(__file__))
 sds_cfg = os.path.expanduser(os.path.join('~', '.sds', 'tss_config'))
