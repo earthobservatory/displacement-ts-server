@@ -16,6 +16,7 @@ for more information.
             <!-- The global defaults. All elements are mandatory -->
             <allowFeatureInfo>true</allowFeatureInfo>
             <defaultColorScaleRange>-50 50</defaultColorScaleRange>
+            <paletteLocationDir>palettes</paletteLocationDir>
             <defaultPaletteName>rainbow</defaultPaletteName>
             <defaultNumColorBands>20</defaultNumColorBands>
             <logScaling>false</logScaling>
