@@ -144,11 +144,11 @@ function LeafHandler(name)
             //TODO: could read this from caps...but no titles yet
             _self.layers =  [
                 {
-                    "name":"RAW Displacement Time Series (cm)",
+                    "name":"RAW Displacement Time Series (mm)",
                     "id":"rawts",
                 },
                 {
-                    "name":"Filtered Displacement Time Series (cm)",
+                    "name":"Filtered Displacement Time Series (mm)",
                     "id":"recons",
                 }
             ];
@@ -220,7 +220,7 @@ function LeafHandler(name)
                     updateTimeDimension: true,
                     markers: MARKERS,
                     name: config["name"],
-                    units: "cm",
+                    units: "mm",
                     enableNewMarkers: true
                 });
                 _self.overlays[config["name"]] = tsLayer;

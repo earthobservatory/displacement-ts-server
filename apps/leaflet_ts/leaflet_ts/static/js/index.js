@@ -59,14 +59,14 @@ var WMS_URL="//"+location.hostname+"/thredds/wms/ts/"+getParameterByName("id");
 //NSBAS-PARAMS.h5";
 var LAYERS_CONFIG = [
     {
-        "name":"RAW Displacement Time Series (cm)",
+        "name":"RAW Displacement Time Series (mm)",
         "id":"rawts",
-        "colorscalerange":"-100,100"
+        "colorscalerange":"-1000,1000"
     },
     {
-        "name":"Filtered Displacement Time Series (cm)",
+        "name":"Filtered Displacement Time Series (mm)",
         "id":"recons",
-        "colorscalerange":"-100,100"
+        "colorscalerange":"-1000,1000"
     }
 
 ];
@@ -128,7 +128,7 @@ for (var i = 0; i < LAYERS_CONFIG.length; i++) {
        updateTimeDimension: true,
        markers: markers,
        name: config["name"],
-       units: "cm",
+       units: "mm",
        enableNewMarkers: true
     }
   );
