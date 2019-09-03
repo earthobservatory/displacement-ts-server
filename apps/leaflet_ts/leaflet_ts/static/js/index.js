@@ -105,7 +105,7 @@ for (var i = 0; i < LAYERS_CONFIG.length; i++) {
         abovemaxcolor: "extend",
         belowmincolor: "extend",
         numcolorbands: 100,
-        styles: 'boxfill/rainbow'
+        styles: 'boxfill/revrainbow'
       }
     );
    var legend = L.control(
@@ -116,7 +116,7 @@ for (var i = 0; i < LAYERS_CONFIG.length; i++) {
    legends[config["name"]] = legend;
    //Add callbacks for legend
    legend.onAdd = function(map) {
-       var src = WMS_URL+"?REQUEST=GetLegendGraphic&LAYER="+config["id"]+"&PALETTE=rainbow&colorscalerange="+config["colorscalerange"]+"&numcolorbands=100&transparent=TRUE";
+       var src = WMS_URL+"?REQUEST=GetLegendGraphic&LAYER="+config["id"]+"&PALETTE=revrainbow&colorscalerange="+config["colorscalerange"]+"&numcolorbands=100&transparent=TRUE";
        var div = L.DomUtil.create('div', 'info legend');
        div.innerHTML +='<img src="' + src + '" alt="legend">';
        return div;
