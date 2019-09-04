@@ -59,12 +59,12 @@ var WMS_URL="//"+location.hostname+"/thredds/wms/ts/"+getParameterByName("id");
 //NSBAS-PARAMS.h5";
 var LAYERS_CONFIG = [
     {
-        "name":"RAW Displacement Time Series (mm)",
+        "name":"RAW Displacement Time Series wrt Satellite LOS (mm)",
         "id":"rawts",
         "colorscalerange":"-100,100"
     },
     {
-        "name":"Filtered Displacement Time Series (mm)",
+        "name":"Filtered Displacement Time Series wrt Satellite LOS (mm)",
         "id":"recons",
         "colorscalerange":"-100,100"
     }

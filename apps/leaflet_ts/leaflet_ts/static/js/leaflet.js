@@ -144,11 +144,11 @@ function LeafHandler(name)
             //TODO: could read this from caps...but no titles yet
             _self.layers =  [
                 {
-                    "name":"RAW Displacement Time Series (mm)",
+                    "name":"RAW Displacement Time Series wrt Satellite LOS (mm)",
                     "id":"rawts",
                 },
                 {
-                    "name":"Filtered Displacement Time Series (mm)",
+                    "name":"Filtered Displacement Time Series wrt Satellite LOS (mm)",
                     "id":"recons",
                 }
             ];
