@@ -20,7 +20,7 @@ function LeafHandler(name)
             service: "WMS",
             styles: "boxfill/revrainbow",
             logscale: false,
-            colorscalerange: "-1000,1000",
+            colorscalerange: "-100,100",
             format: "image/png",
         };
     /**

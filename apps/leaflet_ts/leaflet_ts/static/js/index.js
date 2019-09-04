@@ -61,12 +61,12 @@ var LAYERS_CONFIG = [
     {
         "name":"RAW Displacement Time Series (mm)",
         "id":"rawts",
-        "colorscalerange":"-1000,1000"
+        "colorscalerange":"-100,100"
     },
     {
         "name":"Filtered Displacement Time Series (mm)",
         "id":"recons",
-        "colorscalerange":"-1000,1000"
+        "colorscalerange":"-100,100"
     }
 
 ];

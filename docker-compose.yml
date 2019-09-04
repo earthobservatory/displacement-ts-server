@@ -11,7 +11,7 @@ services:
     volumes:
       - ./tomcat/logs/:/usr/local/tomcat/logs/
       - ./tomcat/content/thredds:/usr/local/tomcat/content/thredds
-      - ./datasets/ts:/data/ts
+      - /data/work/ts:/data/ts
   hysds-leaflet-ts:
     build: .
     hostname: hysds-leaflet-ts

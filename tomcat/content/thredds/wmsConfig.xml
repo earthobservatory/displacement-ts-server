@@ -17,7 +17,7 @@ for more information.
             <allowFeatureInfo>true</allowFeatureInfo>
             <defaultColorScaleRange>-50 50</defaultColorScaleRange>
             <paletteLocationDir>palettes</paletteLocationDir>
-            <defaultPaletteName>rainbow</defaultPaletteName>
+            <defaultPaletteName>revrainbow</defaultPaletteName>
             <defaultNumColorBands>20</defaultNumColorBands>
             <logScaling>false</logScaling>
             <intervalTime>false</intervalTime>
