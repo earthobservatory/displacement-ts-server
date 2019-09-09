@@ -18,7 +18,7 @@ function LeafHandler(name)
             numcolorbands: 100,
             version: "1.1.1",
             service: "WMS",
-            styles: "boxfill/rainbow",
+            styles: "boxfill/revrainbow",
             logscale: false,
             colorscalerange: "-100,100",
             format: "image/png",
@@ -39,7 +39,7 @@ function LeafHandler(name)
     var LEGEND =
         {
             request: "GetLegendGraphic",
-            palette: "rainbow",
+            palette: "revrainbow",
         };
     /**
      * Capabilities request.
@@ -144,11 +144,11 @@ function LeafHandler(name)
             //TODO: could read this from caps...but no titles yet
             _self.layers =  [
                 {
-                    "name":"RAW Displacement Time Series (cm)",
+                    "name":"RAW Displacement Time Series wrt Satellite LOS (mm)",
                     "id":"rawts",
                 },
                 {
-                    "name":"Filtered Displacement Time Series (cm)",
+                    "name":"Filtered Displacement Time Series wrt Satellite LOS (mm)",
                     "id":"recons",
                 }
             ];
@@ -220,7 +220,7 @@ function LeafHandler(name)
                     updateTimeDimension: true,
                     markers: MARKERS,
                     name: config["name"],
-                    units: "cm",
+                    units: "mm",
                     enableNewMarkers: true
                 });
                 _self.overlays[config["name"]] = tsLayer;

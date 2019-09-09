@@ -202,6 +202,7 @@
   <WMS>
     <allow>true</allow>
     <allowRemote>false</allowRemote>
+    <paletteLocationDir>palettes</paletteLocationDir>
     <maxImageWidth>2500</maxImageWidth>
     <maxImageHeight>2500</maxImageHeight>
   </WMS>
